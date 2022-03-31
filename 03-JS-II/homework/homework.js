@@ -66,7 +66,7 @@ function saludo(idioma) {
   }
 }
 
-function colors(color) {
+function colors(color){
   //La función recibe un color. Devolver el string correspondiente:
   //En caso que el color recibido sea "blue", devuleve --> "This is blue"
   //En caso que el color recibido sea "red", devuleve --> "This is red"
@@ -86,12 +86,13 @@ function colors(color) {
     default:
       return "Color not found";
   }
+  }
 
 function esDiezOCinco(numero) {
   // Devuelve "true" si "numero" es 10 o 5
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (numero === 10 || 5){
+  if (numero === 10 || numero === 5){
     return true;
   }
   else{
@@ -132,14 +133,14 @@ function fizzBuzz(numero) {
   // Si "numero" es divisible entre 5, devuelve "buzz"
   // Si "numero" es divisible entre 3 y 5 (ambos), devuelve "fizzbuzz"
   // De lo contrario, devuelve el numero
-  if (numero%3 === 0){
+  if (numero%3 === 0 && numero%5===0) {
+    return "fizzbuzz";
+  }
+  else if (numero%3 === 0){
     return "fizz";
   }
   else if (numero%5 === 0){
     return "buzz";
-  }
-  else if ((numero%3 && numero/5) === 0){
-    return "fizzbuzz";
   }
   else{
     return numero;
@@ -153,17 +154,22 @@ function operadoresLogicos(num1, num2, num3) {
   //Si num3 es más grande que num1 y num2, aumentar su valor en 1 y retornar el nuevo valor.
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false. 
-  if (num1>num2&&num1>num3&&num1>0){
-    return "Número 1 es mayor y positivo";
-  }
   if (num1<0||num2<0||num3<0){
     return "Hay negativos";
   }
-  if (num3>num1&&num3>num2){
-    num3++;
-    return num3;
+  else if (num1 === 0 || num2 === 0 || num3 === 0){
+    return "Error";
   }
-}
+  else if (num1>num2&&num1>num3&&num1>0){
+    return "Número 1 es mayor y positivo";
+  }
+  else if (num3>num1&&num3>num2){
+    return num3 + 1;
+  }
+  else {
+    return false;
+  }
+  }
 
 function esPrimo(numero) {
   // Devuelve "true" si "numero" es primo
@@ -249,5 +255,4 @@ module.exports = {
   tablaDelSeis,
   tieneTresDigitos,
   doWhile
-}
 }
